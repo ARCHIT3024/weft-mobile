@@ -1,0 +1,97 @@
+name: weft_mobile
+description: "Weft - Crowdsourced Civic Issue Reporting Platform"
+publish_to: 'none'
+version: 1.0.0+1
+
+environment:
+  sdk: ^3.12.2
+
+dependencies:
+  flutter:
+    sdk: flutter
+  flutter_localizations:
+    sdk: flutter
+
+  # ── UI & Icons ────────────────────────────────────────────────────
+  cupertino_icons: ^1.0.8
+  google_fonts: ^6.2.1
+  flutter_svg: ^2.0.17
+  shimmer: ^3.0.0
+  cached_network_image: ^3.4.1
+  photo_view: ^0.15.0
+
+  # ── Navigation ────────────────────────────────────────────────────
+  go_router: ^14.8.1
+
+  # ── State Management ──────────────────────────────────────────────
+  flutter_riverpod: ^2.6.1
+  riverpod_annotation: ^2.6.1
+
+  # ── Networking ────────────────────────────────────────────────────
+  dio: ^5.7.0
+  retrofit: ^4.4.1
+  json_annotation: ^4.9.0
+
+  # ── Maps ──────────────────────────────────────────────────────────
+  flutter_map: ^7.0.2
+  flutter_map_marker_cluster: ^1.4.0
+  latlong2: ^0.9.1
+
+  # ── Location ──────────────────────────────────────────────────────
+  geolocator: ^13.0.2
+  geocoding: ^3.0.0
+
+  # ── Image & Camera ───────────────────────────────────────────────
+  image_picker: ^1.1.2
+  flutter_image_compress: ^2.3.0
+
+  # ── Firebase / Push Notifications ─────────────────────────────────
+  firebase_core: ^3.13.0
+  firebase_messaging: ^15.2.4
+
+  # ── Local Storage ─────────────────────────────────────────────────
+  flutter_secure_storage: ^9.2.4
+  hive: ^2.2.3
+  hive_flutter: ^1.1.0
+  shared_preferences: ^2.5.3
+
+  # ── Connectivity ──────────────────────────────────────────────────
+  connectivity_plus: ^6.1.4
+
+  # ── Utils ─────────────────────────────────────────────────────────
+  intl: ^0.20.2
+  uuid: ^4.5.1
+  path_provider: ^2.1.6
+  url_launcher: ^6.3.1
+  permission_handler: ^11.3.1
+  logger: ^2.5.0
+  freezed_annotation: ^2.4.4
+  equatable: ^2.0.7
+
+  # ── CAPTCHA ───────────────────────────────────────────────────────
+  # webview_flutter will be used for reCAPTCHA v3 on anonymous submissions
+  webview_flutter: ^4.12.0
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^6.0.0
+
+  # ── Code Generation ──────────────────────────────────────────────
+  build_runner: ^2.4.15
+  json_serializable: ^6.9.4
+  retrofit_generator: ^9.1.7
+  freezed: ^2.5.7
+  riverpod_generator: ^2.6.3
+
+  # ── Testing ──────────────────────────────────────────────────────
+  mockito: ^5.4.5
+  integration_test:
+    sdk: flutter
+
+flutter:
+  uses-material-design: true
+
+  assets:
+    - assets/images/
+    - assets/icons/
