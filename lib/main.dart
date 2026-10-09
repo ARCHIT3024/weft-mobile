@@ -1,33 +1,25 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
-import 'core/theme.dart';
-import 'routing/app_router.dart';
-import 'services/api_client.dart';
+import 'app.dart';
+import 'core/firebase_bootstrap.dart';
+import 'core/storage/app_preferences.dart';
 
-void main() {
+export 'app.dart' show WeftApp;
+
+Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
-  // Initialise Dio HTTP client with JWT interceptors
-  ApiClient.init();
+  // Never blocks start-up on missing Firebase config (see firebase_bootstrap).
+  await FirebaseBootstrap.initialize();
+
+  final prefs = await SharedPreferences.getInstance();
 
   runApp(
-    const ProviderScope(
-      child: WeftApp(),
+    ProviderScope(
+      overrides: [sharedPreferencesProvider.overrideWithValue(prefs)],
+      child: const WeftApp(),
     ),
   );
-}
-
-class WeftApp extends StatelessWidget {
-  const WeftApp({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp.router(
-      title: 'Weft',
-      debugShowCheckedModeBanner: false,
-      theme: WeftTheme.light,
-      routerConfig: appRouter,
-    );
-  }
 }

@@ -4,4 +4,10 @@
          to allow setting breakpoints, to provide hot reload, etc.
     -->
     <uses-permission android:name="android.permission.INTERNET"/>
+
+    <!-- DEBUG BUILDS ONLY: the dev API is plain http (http://10.0.2.2:8000/v1
+         from the emulator), and Android 9+ blocks cleartext traffic by default.
+         This manifest is merged only into debug builds; staging and prod use
+         https and keep the platform default (cleartext blocked). -->
+    <application android:usesCleartextTraffic="true" />
 </manifest>

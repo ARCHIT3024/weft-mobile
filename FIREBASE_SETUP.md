@@ -41,6 +41,9 @@ The Firebase project setup requires manual steps in the Firebase Console.
 - [ ] FCM API enabled
 - [ ] Service account JSON stored in Secrets Manager
 
-> **Note**: The Flutter code (`firebase_core`, `firebase_messaging`) is already
-> configured in pubspec.yaml. Firebase initialisation in `main.dart` will be
-> added in Phase 2 (task 2.29) once the config files are in place.
+> **Note**: `main.dart` calls `FirebaseBootstrap.initialize()`
+> (`lib/core/firebase_bootstrap.dart`), which is guarded: without the config
+> files above it logs a warning and the app starts normally with push disabled.
+> FCM wiring (tasks 2.29–2.31) must check `FirebaseBootstrap.isAvailable`.
+> Note: once `google-services.json` is added, the Android
+> `com.google.gms.google-services` Gradle plugin must also be applied.
